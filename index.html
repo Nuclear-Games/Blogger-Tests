@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blogger Website Searcher</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#searchForm").submit(function(event) {
+                event.preventDefault();
+                var searchTerm = $("#searchTerm").val();
+                fetchBlogs(searchTerm);
+            });
+        });
+
+        function fetchBlogs(searchTerm) {
+            var url = "https://2023mp.blogspot.com/search?q=" + searchTerm;
+            $.getJSON(url, function(data) {
+                var entries = data.feed.entry;
+                var html = "";
+                if (entries) {
+                    for (var i = 0; i < entries.length; i++) {
+                        var blogTitle = entries[i].title.$t;
+                        var blogUrl = entries[i].link[2].href;
+                        html += "<div>";
+                        html += "<h3>" + blogTitle + "</h3>";
+                        html += "<p><a href='" + blogUrl + "'>Read More</a></p>";
+                        html += "</div>";
+                    }
+                } else {
+                    html = "<p>No blogs found.</p>";
+                }
+                $("#blogResults").html(html);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Blogger Website Searcher</h1>
+    <form id="searchForm">
+        <input type="text" id="searchTerm" placeholder="Search for blogs">
+        <input type="submit" value="Search">
+    </form>
+    <div id="blogResults"></div>
+</body>
+</html>
