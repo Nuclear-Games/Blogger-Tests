@@ -1,45 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Blogger Website Searcher</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#searchForm").submit(function(event) {
-                event.preventDefault();
-                var searchTerm = $("#searchTerm").val();
-                fetchBlogs(searchTerm);
-            });
-        });
-
-        function fetchBlogs(searchTerm) {
-            var url = "https://2023mp.blogspot.com/search?q=" + searchTerm;
-            $.getJSON(url, function(data) {
-                var entries = data.feed.entry;
-                var html = "";
-                if (entries) {
-                    for (var i = 0; i < entries.length; i++) {
-                        var blogTitle = entries[i].title.$t;
-                        var blogUrl = entries[i].link[2].href;
-                        html += "<div>";
-                        html += "<h3>" + blogTitle + "</h3>";
-                        html += "<p><a href='" + blogUrl + "'>Read More</a></p>";
-                        html += "</div>";
-                    }
-                } else {
-                    html = "<p>No blogs found.</p>";
-                }
-                $("#blogResults").html(html);
-            });
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="Narrative Nook , narrative nook , Latest News , Top Headlines , Top 10 Big Headlines , Best Blogging Website , Viral News , Puneet Superstar , Narendra modi , 991008985532">
+  <meta name="description" content="The Blog Website That Offer You To Stay Updated With The Latest News Going Around The World , And Give Information In Very Descriptive Way !">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/9296e39fbd.js" crossorigin="anonymous"></script>
+  <title>Narrative Nook</title>
 </head>
+
 <body>
-    <h1>Blogger Website Searcher</h1>
-    <form id="searchForm">
-        <input type="text" id="searchTerm" placeholder="Search for blogs">
-        <input type="submit" value="Search">
-    </form>
-    <div id="blogResults"></div>
+
+
+  <div class="nntopbar">
+    <div class="logoflexbox">
+      <h1 class="Narrative">Narrative</h1> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h1 class="Nook">Nook</h1>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="index.html" class="menulinks">Home</a><br><br>
+    <a href="#aboutus" class="menulinks">About us</a><br><br>
+    <a href="#blogcategory" class="menulinks">Category</a><br><br>
+    <a href="#newsletter" class="menulinks">Subscribe - News</a><br>
+  </div><br><br><br><br>
+
+
+    <div class="nnblogsearcharea">
+      <input type="text" onkeyup="searchblogs()" id="blogsearchInput"
+        placeholder="Search Posts Under Narrative Nook . . .">
+    </div>
+
+
+  <div class="blogPostsbox">
+
+
+    <div class="blogpost" name="modi is legend">
+      <img src="https://blog.joberty.de/content/images/size/w1272/2023/06/effects-of-hating-your-job.png">
+      <div class="textflashbox">
+        <h1 class="blogheading">Biography Of Legend</h1>
+        <p class="flashcardtext">Modi was born and raised in Vadnagar in northeastern Gujarat, where he completed his
+          secondary education. He was introduced to the RSS at age eight.</p>
+      </div>
+    </div>
+
+
+    <div class="blogpost" name="gadha = rahul gandhi">
+      <img src="https://blog.joberty.de/content/images/size/w1272/2023/06/effects-of-hating-your-job.png">
+      <div class="textflashbox">
+        <h1 class="blogheading">Biography Of Legend</h1>
+        <p class="flashcardtext">Modi was born and raised in Vadnagar in northeastern Gujarat, where he completed his
+          secondary education. He was introduced to the RSS at age eight.</p>
+      </div>
+    </div>
+
+
+    <div class="blogpost" name="haaa">
+      <img src="https://blog.joberty.de/content/images/size/w1272/2023/06/effects-of-hating-your-job.png">
+      <div class="textflashbox">
+        <h1 class="blogheading">Biography Of Legend</h1>
+        <p class="flashcardtext">Modi was born and raised in Vadnagar in northeastern Gujarat, where he completed his
+          secondary education. He was introduced to the RSS at age eight.</p>
+      </div>
+    </div>
+
+
+    <div class="blogpost" name="rss">
+      <img src="https://blog.joberty.de/content/images/size/w1272/2023/06/effects-of-hating-your-job.png">
+      <div class="textflashbox">
+        <h1 class="blogheading">Biography Of Legend</h1>
+        <p class="flashcardtext">Modi was born and raised in Vadnagar in northeastern Gujarat, where he completed his
+          secondary education. He was introduced to the RSS at age eight.</p>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <div class="no-results">
+     <h2>No results found</h2><br>
+  </div>
+
+
+
+
+
+
+<footer>
+
+ 
+  <div class="copyright">
+    <p>ⓒ Copyright 2023 &nbsp; - By -  </p><p style="color: salmon;">&nbsp;&nbsp;Narrative Nook</p>
+  </div>
+
+</footer>
+
+
+
+
+  <script src="main.js"></script>
 </body>
+
 </html>
